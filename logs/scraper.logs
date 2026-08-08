@@ -1,0 +1,21 @@
+2026-08-08 12:07:27,938 | INFO | main.py | Main module Calling
+2026-08-08 12:07:29,030 | INFO | browser.py | launching Broswser...
+2026-08-08 12:07:29,579 | INFO | browser.py | Launching context...
+2026-08-08 12:07:29,605 | INFO | browser.py | Launching Page...
+2026-08-08 12:07:29,851 | INFO | browser.py | Broswer Launched successfully
+2026-08-08 12:07:29,851 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-08 12:07:29,851 | INFO | navigator.py | Navigating to Url https://www.daraz.pk/
+2026-08-08 12:07:40,259 | INFO | navigator.py | Page navigated !
+2026-08-08 12:07:40,260 | INFO | navigator.py | Searching Products...
+2026-08-08 12:07:42,023 | INFO | navigator.py | Laptop products page found !
+2026-08-08 12:07:42,023 | INFO | products.py | Extractor Constructor Called 
+2026-08-08 12:07:42,024 | INFO | products.py | Extracting Basic Details of Product
+2026-08-08 12:07:49,809 | INFO | products.py | Product found | 40
+2026-08-08 12:07:51,659 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-08 12:07:51,659 | INFO | json_services.py | Exporting to raw json..
+2026-08-08 12:07:51,662 | INFO | json_services.py | Raw Json Exported !
+2026-08-08 12:07:51,663 | INFO | cleaner.py | Cleaning Price of Products...
+2026-08-08 12:07:51,663 | INFO | json_services.py | Exporting to raw json..
+2026-08-08 12:07:51,667 | INFO | json_services.py | Raw Json Exported !
+2026-08-08 12:07:51,667 | INFO | browser.py | Closing Broswer...
+2026-08-08 12:07:52,276 | INFO | browser.py | Browser closed successfully !
