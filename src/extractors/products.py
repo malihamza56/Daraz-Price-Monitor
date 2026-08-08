@@ -45,26 +45,24 @@ class Extractor:
                 image = productCard.locator(PRODUCT_PIC_SRC)
 
                 imgSrc = image.get_attribute("src")
-
-                if imgSrc.startswith("data:image"):
-
-                    imgSrc = (
-                        image.get_attribute("data-src")
-                        or image.get_attribute("data-ks-lazyload")
-                        or imgSrc
-                    )
+                
+                dataSrc = image.get_attribute("data-src")
+                
+                lazyLoad = image.get_attribute("data-ks-lazyload")
                     
                 rating = productCard.locator("i._9-ogB").count()
                 
                 products.append({
                     
-                'sr' : i,
+                'sr' : i+1,
                 'title':title,
                 'price':price,
                 'currency': 'PKR' if "Rs" in price else 'none',
-                'productLink': "https:" + srcLink if srcLink.startswith("//") else srcLink,
+                'rating':rating,
+                'productLink': srcLink,
                 'imgSrc':imgSrc,
-                'rating':rating
+                'dataSrc' : dataSrc,
+                'lazyLoad':lazyLoad
                 
             })
                 

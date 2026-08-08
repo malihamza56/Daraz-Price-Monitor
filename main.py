@@ -33,7 +33,7 @@ def main():
                     
             CLEANER = Cleaner(products=products)
             
-            data = CLEANER._cleanPrice()
+            data = CLEANER._cleaned_products()
             
             JSON = Json(products=data)
             
