@@ -37,7 +37,7 @@ EXCEL_PATH = "data/processed/products.xlsx"
 #!-------------------------------------------
 
 PRODUCT = 'Laptop'
-TARGET_PRICE = 9500
+TARGET_PRICE = 50000
 
 
 
