@@ -27,10 +27,12 @@ BASE_URL = "https://www.daraz.pk/"
 #!        EXPORTER PATHS
 #-------------------------------------------
 
-RAW_JSON = "data/raw/raw_products.json"
-JSON_PATH = "data/processed/products.json"
-CSV_PATH = "data/processed/products.csv"
-EXCEL_PATH = "data/processed/products.xlsx"
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+RAW_JSON = BASE_DIR / "data/raw/raw_products.json"
+JSON_PATH = BASE_DIR / "data/processed/clean_products.json"
+FILTERED_JSON = BASE_DIR / "data/processed/filtered_products.json"
+PREVIOUS_FILTERED_JSON = BASE_DIR / "data/processed/previous_filtered_products.json"
 
 
 

@@ -1,6 +1,6 @@
 
 from src.config.logger import logger
-from src.config.config import TARGET_PRICE
+
 
 class Filter:
     
@@ -15,20 +15,21 @@ class Filter:
         filtered_products = []
         
         try:
-            logger.info(f"Filtering products according to {TARGET_PRICE} target price...")
+            logger.info(f"Filtering {self.targetBrand} products according to {self.targetPrice} target price...")
             
-            for product in self.cleanedProducts:
-                
-                price = product.get('price')
-                title = product.get('title')
-                
-                if  self.targetBrand in title.lower(): 
-                    if price and price <= self.targetPrice:
-                        
-                        filtered_products.append(
-                            product
-                        )
-                        
+            if self.targetBrand or self.targetPrice:    
+                for product in self.cleanedProducts:
+                    
+                    price = product.get('price')
+                    title = product.get('title')
+                    
+                    if  self.targetBrand in title.lower(): 
+                        if price and price <= self.targetPrice:
+                            
+                            filtered_products.append(
+                                product
+                            )
+                            
         
             logger.info('Products filtered successfully !')
             

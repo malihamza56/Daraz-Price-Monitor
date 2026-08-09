@@ -1,7 +1,7 @@
 import json
 from src.config.logger import logger
 from src.config.config import RAW_JSON
-
+from pathlib import Path
 
 class Json:
     
@@ -38,28 +38,30 @@ class Json:
         
         
         #<LOAD JSON/>
-        def load(self,path):
+    def load(self,path):
             
-            try:
-                
-                logger.info('Loading Raw Json...')
-                
-                with open(
-                    path,
-                    'r',
-                    encoding="utf-8"
-                ) as file:
-                    
-                    
-                    data = json.load(file)
-                    
-                logger.info("Json Data Loaded !")
-                
-                return data
+        try:
             
-            except Exception as e:
-                logger.error(f"Failed to load Json Data | {e}")
-                raise
+            logger.info('Loading Raw Json...')
+            
+            with open(
+                path,
+                'r',
+                encoding="utf-8"
+            ) as file:
                 
                 
+                data = json.load(file)
+                
+            logger.info("Json Data Loaded !")
+            
+            return data
+        
+        except Exception as e:
+            logger.error(f"Failed to load Json Data | {e}")
+            raise
+                
+    def exists(self, path):
+
+        return Path(path).exists()
                 

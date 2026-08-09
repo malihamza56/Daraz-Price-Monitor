@@ -3,11 +3,7 @@ from src.config.selectors import (
     SEARCH_BOX,
     SEARCH_BUTTON,
 )
-from src.config.config import(
-    BASE_URL,
-    LOAD_STATE,
-    PRODUCT
-)
+from src.config.config import BASE_URL
 
 class Navigation:
     
@@ -34,7 +30,7 @@ class Navigation:
             raise
 
 
-    def search_product(self,page):
+    def search_product(self,page,prodcut_name):
         
         
         try:
@@ -47,11 +43,11 @@ class Navigation:
             
             box.wait_for(state='visible')
         
-            box.press_sequentially(PRODUCT)
+            box.press_sequentially(prodcut_name)
             
             SEARCH_BUTTON(page=page).click()
             
-            logger.info(f"{PRODUCT} products page found !")
+            logger.info(f"{prodcut_name} products page found !")
             
         except Exception as e:
             logger.error(f'Failed to search products | {e}')

@@ -20,23 +20,23 @@ class Tracker:
             for old in self.oldProducts:
                 for new in self.newProducts:
                     
-                    linkA = self.old.get("productLink")
-                    linkB = self.new.get("productLink")
+                    linkA = old.get("productLink")
+                    linkB = new.get("productLink")
 
                     old_price = old.get('price')
                     new_price = new.get('price')
                     
-            if linkA == linkB:
-                if new < old :
-                    
-                    droped_products.append(
-                        {
-                        'title':new.get('title'),
-                        'oldPrice':old_price,
-                        'newPrice':new_price,
-                        'productLink':new.get('productLink')
-                        }
-                    )
+                    if linkA == linkB:
+                        if new_price < old_price :
+                            
+                            droped_products.append(
+                                {
+                                'title':new.get('title'),
+                                'oldPrice':old_price,
+                                'newPrice':new_price,
+                                'productLink':new.get('productLink')
+                                }
+                            )
             
             logger.info('Price compared | Dropped Products Stored')
             
