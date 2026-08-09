@@ -16,7 +16,7 @@ from src.notifications.mailer import Mailer
 from src.services.cleaner import Cleaner
 from src.services.json_services import Json
 from src.services.filter_products import Filter
-
+import json
 
 def main():
 
@@ -33,7 +33,7 @@ def main():
             # Browser
             browser_manager = Browser(playwright=playwright)
 
-            browser, context, page = browser_manager.launch_browser()
+            browser,page = browser_manager.launch_browser()
 
             # Navigation
             navigation = Navigation(page=page)
@@ -41,7 +41,7 @@ def main():
             page = navigation.page_goto()
 
             # Search
-            navigation.search_product(page=page)
+            navigation.search_product(product_name=name)
 
             # Extraction
             extractor = Extractor(page=page)
@@ -71,7 +71,8 @@ def main():
                 brand=brand,
                 price=price
             )
-
+            
+            
             filtered_products = filter_products._filteredProducts()
 
             # Save FILTERED data
@@ -80,10 +81,10 @@ def main():
             filtered_json.dump(
                 path=FILTERED_JSON
             )
-
+            
             
             #Previous Json Snapshot
-            snapshot_json = Json()
+            snapshot_json = Json(products=filtered_products)
             
             if not snapshot_json.exists(path=PREVIOUS_FILTERED_JSON):
                 

@@ -79,7 +79,7 @@ class Cleaner:
                 for product in self.products:
                     link = product.get('productLink')
                     
-                    if link.startswith("//"):
+                    if link and link.startswith("//"):
                         product['srclink'] = 'https:'+link
                         
                 logger.info('Product links cleaned')

@@ -37,19 +37,10 @@ PREVIOUS_FILTERED_JSON = BASE_DIR / "data/processed/previous_filtered_products.j
 
 
 #!-------------------------------------------
-#!        PRODUCT
-#!-------------------------------------------
-
-PRODUCT = 'Laptop'
-TARGET_PRICE = 50000
-
-
-
-#!-------------------------------------------
 #!        SNAPSHOTS
 #!-------------------------------------------
 
-SNAP_PATH = "snapshots/product.png"
+SNAP_PATH = BASE_DIR / "snapshots/product.png"
 
 
 
@@ -57,8 +48,6 @@ SNAP_PATH = "snapshots/product.png"
 #!      MAILER CONFIGURATION
 #!------------------------------------------
 
-
-BASE_DIR = Path(__file__).resolve().parents[2]
 
 ENV_FILE = BASE_DIR / ".env"
 

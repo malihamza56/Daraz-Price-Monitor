@@ -4,10 +4,9 @@ from src.config.selectors import (
     PRODUCT_TITLE,
     PRODUCT_PRICE,
     PRODUCT_LINK,
-    PRODUCT_PIC_SRC
+    PRODUCT_PIC_SRC,
+    PRODUCT_RATING
 )
-from src.config.config import LOAD_STATE
-
 
 
 class Extractor:
@@ -50,7 +49,7 @@ class Extractor:
                 
                 lazyLoad = image.get_attribute("data-ks-lazyload")
                     
-                rating = productCard.locator("i._9-ogB").count()
+                rating = productCard.locator(PRODUCT_RATING).count()
                 
                 products.append({
                     

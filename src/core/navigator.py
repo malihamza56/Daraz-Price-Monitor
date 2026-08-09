@@ -18,9 +18,9 @@ class Navigation:
         try:
             
             logger.info(f"Navigating to Url {BASE_URL}")
-            self.page.wait_for_load_state("load")
             self.page.goto(BASE_URL)
             
+            self.page.wait_for_load_state("load")
             logger.info("Page navigated !")
             
             return self.page
@@ -30,24 +30,24 @@ class Navigation:
             raise
 
 
-    def search_product(self,page,prodcut_name):
+    def search_product(self,product_name):
         
         
         try:
             
-            page.wait_for_load_state("load")
+            self.page.wait_for_load_state("load")
             
             logger.info("Searching Products...")
             
-            box = page.locator(SEARCH_BOX)
+            box = self.page.locator(SEARCH_BOX)
             
             box.wait_for(state='visible')
         
-            box.press_sequentially(prodcut_name)
+            box.press_sequentially(product_name)
             
-            SEARCH_BUTTON(page=page).click()
+            SEARCH_BUTTON(page=self.page).click()
             
-            logger.info(f"{prodcut_name} products page found !")
+            logger.info(f"{product_name} products page found !")
             
         except Exception as e:
             logger.error(f'Failed to search products | {e}')

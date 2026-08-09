@@ -1,5 +1,5 @@
 """
-^BROWSER: BROSWER MODULE CONTROL THE LAUNCHING AND CLOSING OF BROWSER
+^BROWSER: BROWSER MODULE CONTROL THE LAUNCHING AND CLOSING OF BROWSER
 """
 
 
@@ -31,7 +31,7 @@ class Browser:
             page = context.new_page()
             
             logger.info("Broswer Launched successfully")
-            return browser,context,page
+            return browser,page
         
         
         except Exception as e:
