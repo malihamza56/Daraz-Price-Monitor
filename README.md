@@ -7,7 +7,12 @@
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Short professional project description
+# Description
+A modular Python & Playwright-based price tracking system that automatically searches Daraz, extracts and cleans product data, filters products by brand and target price, tracks price changes across runs, and sends email notifications when a product's price drops.
+
+The project also supports JSON, CSV, and Excel exports, centralized logging, snapshot-based price comparison, and a clean service-oriented architecture for maintainability and future expansion.
+
+<hr/>
 
 ## ✨ Features
   ├── 🔎 Product Search
