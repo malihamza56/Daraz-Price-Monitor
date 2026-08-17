@@ -1,5 +1,6 @@
 import smtplib
 from email.message import EmailMessage
+from pathlib import Path
 
 from src.config.logger import logger
 from src.config.config import (
@@ -7,63 +8,152 @@ from src.config.config import (
     SMTP_PORT,
     EMAIL_USER,
     EMAIL_PASSWORD,
-    TARGET_EMAIL
+    PREVIOUS_FILTERED_EXCEL,
 )
+
 
 required = {
     "SMTP_HOST": SMTP_HOST,
     "EMAIL_USER": EMAIL_USER,
     "EMAIL_PASSWORD": EMAIL_PASSWORD,
-    "TARGET_EMAIL": TARGET_EMAIL
 }
 
-missing = [key for key, value in required.items() if not value]
+missing = [
+    key
+    for key, value in required.items()
+    if not value
+]
 
 if missing:
     raise ValueError(
         f"Missing environment variables: {', '.join(missing)}"
     )
-    
-    
+
+
 class Mailer:
 
-    def __init__(self, products):
+    def __init__(self, products, target_email):
+
         self.products = products
+        self.target_email = target_email
 
     def _send_email(self):
 
         try:
 
-            logger.info("Preparing price drop email...")
+            logger.info(
+                "Preparing Daraz price tracking email..."
+            )
 
-            if not self.products:
-                logger.info("No price dropped products found. Email skipped.")
-                return
+            # ------------------------------------------------
+            # EMAIL MESSAGE
+            # ------------------------------------------------
 
             message = EmailMessage()
 
-            message["Subject"] = "Daraz Price Drop Alert 🔥"
+            message["Subject"] = (
+                "Daraz Price Drop Alert 🔥"
+                if self.products
+                else "Daraz Price Tracking Report 📊"
+            )
+
             message["From"] = EMAIL_USER
-            message["To"] = TARGET_EMAIL
+            message["To"] = self.target_email
 
-            body = "Daraz Price Drop Alert\n\n"
+            # ------------------------------------------------
+            # EMAIL BODY
+            # ------------------------------------------------
 
-            for product in self.products:
+            if self.products:
 
-                body += f"""
-                Product: {product.get('title')}
+                body = (
+                    "Daraz Price Drop Alert 🔥\n\n"
+                    "The following products have dropped "
+                    "in price:\n\n"
+                )
+
+                for product in self.products:
+
+                    body += f"""
+Product: {product.get('title')}
 Old Price: Rs. {product.get('oldPrice')}
-Price: Rs. {product.get('newPrice')}
-Link: {product.get('productLink')}
+New Price: Rs. {product.get('newPrice')}
+Product Link: {product.get('productLink')}
 
 ----------------------------------------
+
 """
+
+            else:
+
+                body = (
+                    "Daraz Price Tracking Report 📊\n\n"
+                    "No price drop was detected during "
+                    "this tracking cycle.\n\n"
+                    "All tracked products were compared "
+                    "with the previous snapshot."
+                )
+
+            body += (
+                "\n📎 The latest Excel report is attached "
+                "with this email."
+            )
 
             message.set_content(body)
 
-            logger.info("Connecting to SMTP server...")
+            # ------------------------------------------------
+            # EXCEL ATTACHMENT
+            # ------------------------------------------------
 
-            with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+            excel_path = Path(
+                PREVIOUS_FILTERED_EXCEL
+            )
+
+            if excel_path.exists():
+
+                logger.info(
+                    f"Attaching Excel report | {excel_path}"
+                )
+
+                with open(
+                    excel_path,
+                    "rb"
+                ) as file:
+
+                    excel_data = file.read()
+
+                message.add_attachment(
+                    excel_data,
+                    maintype="application",
+                    subtype=(
+                        "vnd.openxmlformats-officedocument."
+                        "spreadsheetml.sheet"
+                    ),
+                    filename=excel_path.name,
+                )
+
+                logger.info(
+                    "Excel report attached successfully."
+                )
+
+            else:
+
+                logger.warning(
+                    f"Excel report not found | {excel_path}"
+                )
+
+            # ------------------------------------------------
+            # SMTP CONNECTION
+            # ------------------------------------------------
+
+            logger.info(
+                "Connecting to SMTP server..."
+            )
+
+            with smtplib.SMTP(
+                SMTP_HOST,
+                SMTP_PORT
+            ) as server:
 
                 server.starttls()
 
@@ -72,11 +162,32 @@ Link: {product.get('productLink')}
                     EMAIL_PASSWORD
                 )
 
-                server.send_message(message)
+                server.send_message(
+                    message
+                )
 
-            logger.info("Price drop email sent successfully!")
+            logger.info(
+                "Email sent successfully!"
+            )
+
+            # ------------------------------------------------
+            # RETURN RESULT TO UI
+            # ------------------------------------------------
+
+            return {
+                "status": "sent",
+                "message": (
+                    "Price drop email sent successfully!"
+                    if self.products
+                    else
+                    "No price drop email sent successfully!"
+                ),
+            }
 
         except Exception as e:
 
-            logger.error(f"Failed to send email | {e}")
+            logger.error(
+                f"Failed to send email | {e}"
+            )
+
             raise

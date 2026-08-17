@@ -14,7 +14,7 @@ from pathlib import Path
 HEADLESS = False
 SLOW_MO = 500
 LOAD_STATE = "networkidle"
-
+MAX_PAGES = 20
 #-------------------------------------------
 #!        WEBSITE
 #-------------------------------------------
@@ -33,6 +33,7 @@ RAW_JSON = BASE_DIR / "data/raw/raw_products.json"
 JSON_PATH = BASE_DIR / "data/processed/clean_products.json"
 FILTERED_JSON = BASE_DIR / "data/processed/filtered_products.json"
 PREVIOUS_FILTERED_JSON = BASE_DIR / "data/processed/previous_filtered_products.json"
+PREVIOUS_FILTERED_EXCEL = BASE_DIR / "data/processed/previous_filtered_products.xlsx"
 
 
 

@@ -1,4 +1,6 @@
 from src.config.logger import logger
+from src.core.navigator import Navigation
+from src.config.config  import MAX_PAGES
 from src.config.selectors import (
     PRODUCT_CARD,
     PRODUCT_TITLE,
@@ -18,56 +20,86 @@ class Extractor:
         
     def extract_basic_details(self):
         
-        products = []
+        all_products = []
         
         try:
             
             logger.info('Extracting Basic Details of Product')
             
             self.page.wait_for_load_state("load")
+            current_page = 1
+            sr = 1
             
-            productCards = self.page.locator(PRODUCT_CARD)
-            
-            count = productCards.count()
-            logger.info(f'Product found | {count}')
-            
-            for i in range(count):
+            while current_page <= MAX_PAGES:
                 
-                productCard = productCards.nth(i)
+                navigator = Navigation(page=self.page)
+                productCards = self.page.locator(PRODUCT_CARD)
                 
-                title = productCard.locator(PRODUCT_TITLE).text_content().strip()
-            
-                price = productCard.locator(PRODUCT_PRICE).text_content().strip()
-            
-                srcLink = productCard.locator(PRODUCT_LINK).get_attribute('href')
+                count = productCards.count()
+                logger.info(f'Product found | {count}')
                 
-                image = productCard.locator(PRODUCT_PIC_SRC)
+                for i in range(count):
+                    
+                    productCard = productCards.nth(i)
+                    
+                    title = productCard.locator(PRODUCT_TITLE).text_content().strip()
+                
+                    price = productCard.locator(PRODUCT_PRICE).text_content().strip()
+                
+                    srcLink = productCard.locator(PRODUCT_LINK).get_attribute('href')
+                    
+                    images = productCard.locator(PRODUCT_PIC_SRC)
 
-                imgSrc = image.get_attribute("src")
-                
-                dataSrc = image.get_attribute("data-src")
-                
-                lazyLoad = image.get_attribute("data-ks-lazyload")
+                    imgSrc = None
+                    dataSrc = None
+                    lazyLoad = None
+
+                    for j in range(images.count()):
+
+                        image = images.nth(j)
+
+                        src = image.get_attribute("src")
+                        data_src = image.get_attribute("data-src")
+                        lazy_load = image.get_attribute("data-ks-lazyload")
+
+                        # Actual image
+                        if src and not src.startswith("data:"):
+                            imgSrc = src
+                            break
+
+                        if data_src and not data_src.startswith("data:"):
+                            dataSrc = data_src
+
+                        if lazy_load and not lazy_load.startswith("data:"):
+                            lazyLoad = lazy_load
+                        
+                    rating = productCard.locator(PRODUCT_RATING).count()
                     
-                rating = productCard.locator(PRODUCT_RATING).count()
-                
-                products.append({
+                    all_products.append({
+                        
+                    'sr' : sr,
+                    'title':title,
+                    'price':price,
+                    'currency': 'PKR' if "Rs" in price else 'none',
+                    'rating':rating,
+                    'productLink': srcLink,
+                    'imgSrc':imgSrc,
+                    'dataSrc' : dataSrc,
+                    'lazyLoad':lazyLoad
                     
-                'sr' : i+1,
-                'title':title,
-                'price':price,
-                'currency': 'PKR' if "Rs" in price else 'none',
-                'rating':rating,
-                'productLink': srcLink,
-                'imgSrc':imgSrc,
-                'dataSrc' : dataSrc,
-                'lazyLoad':lazyLoad
+                })
+                sr+=1 
+                current_page+=1
                 
-            })
+                if current_page >= MAX_PAGES:
+                        
+                    logger.info(f"Pages limit Reached |{current_page}")
+                    break    
                 
-            logger.info("Successfully Extracted Details of Product")
-            
-            return products
+                navigator.next_page()  
+                logger.info("Successfully Extracted Details of Product")
+                
+            return all_products
             
         except Exception as e:
             logger.error(f'Failed to Extract details | {e}')

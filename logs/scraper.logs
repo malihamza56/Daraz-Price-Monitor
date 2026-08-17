@@ -1,40 +1,227 @@
-2026-08-09 21:12:34,949 | INFO | main.py | Main module Calling
-2026-08-09 21:13:35,098 | INFO | browser.py | launching Broswser...
-2026-08-09 21:13:35,601 | INFO | browser.py | Launching context...
-2026-08-09 21:13:35,638 | INFO | browser.py | Launching Page...
-2026-08-09 21:13:35,929 | INFO | browser.py | Broswer Launched successfully
-2026-08-09 21:13:35,929 | INFO | navigator.py | Navigation Constructor Called !
-2026-08-09 21:13:35,930 | INFO | navigator.py | Navigating to Url https://www.daraz.pk/
-2026-08-09 21:13:45,492 | INFO | navigator.py | Page navigated !
-2026-08-09 21:13:45,494 | INFO | navigator.py | Searching Products...
-2026-08-09 21:13:47,036 | INFO | navigator.py | trousers for men products page found !
-2026-08-09 21:13:47,036 | INFO | products.py | Extractor Constructor Called 
-2026-08-09 21:13:47,037 | INFO | products.py | Extracting Basic Details of Product
-2026-08-09 21:13:53,691 | INFO | products.py | Product found | 40
-2026-08-09 21:13:55,407 | INFO | products.py | Successfully Extracted Details of Product
-2026-08-09 21:13:55,407 | INFO | json_services.py | Exporting to raw json..
-2026-08-09 21:13:55,410 | INFO | json_services.py | Raw Json Exported !
-2026-08-09 21:13:55,411 | INFO | cleaner.py | Cleaning Price of Products...
-2026-08-09 21:13:55,411 | INFO | cleaner.py | Cleaning Product Image URLs...
-2026-08-09 21:13:55,411 | INFO | cleaner.py | Product Image URLs Cleaned Successfully
-2026-08-09 21:13:55,411 | INFO | cleaner.py | products url cleaning...
-2026-08-09 21:13:55,411 | INFO | cleaner.py | Product links cleaned
-2026-08-09 21:13:55,413 | INFO | serializer.py | Exporting Json...
-2026-08-09 21:13:55,416 | INFO | serializer.py | Json Saved Successfully...
-2026-08-09 21:13:55,416 | INFO | filter_products.py | 40 No of products found - Target Brand : adidas - Target Prce : 1500
-2026-08-09 21:13:55,416 | INFO | filter_products.py | Filtering adidas products according to 1500 target price from 40...
-2026-08-09 21:13:55,416 | INFO | filter_products.py | Present Data : adidas | 1500
-2026-08-09 21:13:55,416 | INFO | filter_products.py | Products filtered successfully !
-2026-08-09 21:13:55,417 | INFO | json_services.py | Exporting to raw json..
-2026-08-09 21:13:55,417 | INFO | json_services.py | Raw Json Exported !
-2026-08-09 21:13:55,418 | INFO | main.py | Previous Filtered Data Found !
-2026-08-09 21:13:55,418 | INFO | json_services.py | Loading Raw Json...
-2026-08-09 21:13:55,418 | INFO | json_services.py | Json Data Loaded !
-2026-08-09 21:13:55,418 | INFO | price_tracker.py | Comparing Prices of Old & New Products...
-2026-08-09 21:13:55,419 | INFO | price_tracker.py | Price compared | Dropped Products Stored
-2026-08-09 21:13:55,419 | INFO | main.py | 0 Dropped price products found !
-2026-08-09 21:13:55,419 | INFO | serializer.py | Exporting Json...
-2026-08-09 21:13:55,420 | INFO | serializer.py | Json Saved Successfully...
-2026-08-09 21:13:55,421 | INFO | browser.py | Closing Broswer...
-2026-08-09 21:13:55,960 | INFO | browser.py | Browser closed successfully !
-2026-08-09 21:13:55,960 | INFO | main.py | Scraper completed successfully!
+2026-08-17 21:20:49,184 | INFO | main.py | Search workflow started
+2026-08-17 21:20:49,522 | INFO | browser.py | launching Broswser...
+2026-08-17 21:20:49,825 | INFO | browser.py | Launching context...
+2026-08-17 21:20:49,839 | INFO | browser.py | Launching Page...
+2026-08-17 21:20:49,981 | INFO | browser.py | Broswer Launched successfully
+2026-08-17 21:20:49,981 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:20:49,981 | INFO | navigator.py | Navigating to Url https://www.daraz.pk/
+2026-08-17 21:21:12,908 | INFO | navigator.py | Page navigated !
+2026-08-17 21:21:12,908 | INFO | navigator.py | Searching Products...
+2026-08-17 21:21:12,909 | INFO | navigator.py | Current URL before search | https://www.daraz.pk/#?
+2026-08-17 21:21:12,914 | INFO | navigator.py | Page title before search | Online Shopping in Pakistan: Fashion, Electronics & Groceries - Daraz.pk
+2026-08-17 21:21:12,947 | INFO | navigator.py | Search box found successfully!
+2026-08-17 21:21:13,657 | INFO | navigator.py | Product name entered | track suits
+2026-08-17 21:21:16,189 | INFO | navigator.py | track suits products page found!
+2026-08-17 21:21:16,189 | INFO | products.py | Extractor Constructor Called 
+2026-08-17 21:21:16,189 | INFO | products.py | Extracting Basic Details of Product
+2026-08-17 21:21:34,449 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:34,638 | INFO | products.py | Product found | 40
+2026-08-17 21:21:35,740 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:37,908 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:37,909 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:37,909 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:37,912 | INFO | products.py | Product found | 40
+2026-08-17 21:21:39,019 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:40,531 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:40,531 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:40,532 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:40,535 | INFO | products.py | Product found | 40
+2026-08-17 21:21:41,494 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:43,554 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:43,554 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:43,554 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:43,558 | INFO | products.py | Product found | 40
+2026-08-17 21:21:44,513 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:46,588 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:46,589 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:46,589 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:46,593 | INFO | products.py | Product found | 40
+2026-08-17 21:21:47,534 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:49,579 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:49,580 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:49,580 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:49,583 | INFO | products.py | Product found | 40
+2026-08-17 21:21:50,488 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:51,600 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:51,601 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:51,601 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:51,603 | INFO | products.py | Product found | 40
+2026-08-17 21:21:52,518 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:53,637 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:53,638 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:53,638 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:53,643 | INFO | products.py | Product found | 40
+2026-08-17 21:21:54,646 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:56,640 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:56,641 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:56,641 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:56,644 | INFO | products.py | Product found | 40
+2026-08-17 21:21:57,617 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:21:59,656 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:21:59,657 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:21:59,657 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:21:59,661 | INFO | products.py | Product found | 40
+2026-08-17 21:22:00,682 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:02,687 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:02,688 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:02,688 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:02,692 | INFO | products.py | Product found | 40
+2026-08-17 21:22:03,703 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:05,698 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:05,699 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:05,699 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:05,702 | INFO | products.py | Product found | 40
+2026-08-17 21:22:06,637 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:08,737 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:08,737 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:08,737 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:08,742 | INFO | products.py | Product found | 40
+2026-08-17 21:22:09,726 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:11,770 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:11,771 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:11,771 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:11,777 | INFO | products.py | Product found | 40
+2026-08-17 21:22:12,761 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:14,784 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:14,785 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:14,785 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:14,788 | INFO | products.py | Product found | 40
+2026-08-17 21:22:15,834 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:17,832 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:17,832 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:17,832 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:17,835 | INFO | products.py | Product found | 40
+2026-08-17 21:22:18,814 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:20,858 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:20,858 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:20,859 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:20,863 | INFO | products.py | Product found | 40
+2026-08-17 21:22:21,831 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:23,887 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:23,888 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:23,889 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:23,892 | INFO | products.py | Product found | 40
+2026-08-17 21:22:24,779 | INFO | navigator.py | Cheking pagination
+2026-08-17 21:22:25,884 | INFO | navigator.py | Next Page Found !
+2026-08-17 21:22:25,884 | INFO | products.py | Successfully Extracted Details of Product
+2026-08-17 21:22:25,884 | INFO | navigator.py | Navigation Constructor Called !
+2026-08-17 21:22:25,887 | INFO | products.py | Product found | 40
+2026-08-17 21:22:26,806 | INFO | products.py | Pages limit Reached |20
+2026-08-17 21:22:26,806 | INFO | main.py | Total products extracted | 760
+2026-08-17 21:22:26,806 | INFO | json_services.py | Exporting to raw json..
+2026-08-17 21:22:26,820 | INFO | json_services.py | Raw Json Exported !
+2026-08-17 21:22:26,820 | INFO | cleaner.py | Cleaning Price of Products...
+2026-08-17 21:22:26,820 | INFO | cleaner.py | Cleaning Product Image URLs...
+2026-08-17 21:22:26,820 | INFO | cleaner.py | Product Image URLs Cleaned Successfully
+2026-08-17 21:22:26,820 | INFO | cleaner.py | products url cleaning...
+2026-08-17 21:22:26,820 | INFO | cleaner.py | Product links cleaned
+2026-08-17 21:22:26,829 | INFO | serializer.py | Exporting Json...
+2026-08-17 21:22:26,836 | INFO | serializer.py | Json Saved Successfully...
+2026-08-17 21:22:26,836 | INFO | filter_products.py | 760 No of products found - Target Brand : 
+2026-08-17 21:22:26,836 | INFO | filter_products.py | Filtering products by brand: 
+2026-08-17 21:22:26,837 | INFO | filter_products.py | Brand filtering completed | 760 products found
+2026-08-17 21:22:26,837 | INFO | main.py | Filtered products | 565
+2026-08-17 21:22:26,837 | INFO | json_services.py | Exporting to raw json..
+2026-08-17 21:22:26,850 | INFO | json_services.py | Raw Json Exported !
+2026-08-17 21:22:26,850 | INFO | browser.py | Closing Broswer...
+2026-08-17 21:22:27,186 | INFO | browser.py | Browser closed successfully !
+2026-08-17 21:22:27,186 | INFO | main.py | Search workflow completed successfully
+2026-08-17 21:23:14,529 | INFO | main.py | Price tracking workflow started
+2026-08-17 21:23:14,529 | INFO | main.py | Previous filtered data found
+2026-08-17 21:23:14,529 | INFO | json_services.py | Loading Raw Json...
+2026-08-17 21:23:14,531 | INFO | json_services.py | Json Data Loaded !
+2026-08-17 21:23:14,531 | INFO | price_tracker.py | Comparing Prices of Old & New Products...
+2026-08-17 21:23:14,576 | INFO | price_tracker.py | Price compared | Dropped Products Stored
+2026-08-17 21:23:14,577 | INFO | main.py | Price drops found | 0
+2026-08-17 21:23:14,579 | INFO | serializer.py | Exporting Json...
+2026-08-17 21:23:14,583 | INFO | serializer.py | Json Saved Successfully...
+2026-08-17 21:23:14,583 | INFO | serializer.py | Exporting Data to Excel
+2026-08-17 21:23:14,679 | INFO | serializer.py | Excel Ouput Done
+2026-08-17 21:23:19,710 | INFO | main.py | Price tracking workflow started
+2026-08-17 21:23:19,710 | INFO | main.py | Previous filtered data found
+2026-08-17 21:23:19,710 | INFO | json_services.py | Loading Raw Json...
+2026-08-17 21:23:19,712 | INFO | json_services.py | Json Data Loaded !
+2026-08-17 21:23:19,712 | INFO | price_tracker.py | Comparing Prices of Old & New Products...
+2026-08-17 21:23:19,761 | INFO | price_tracker.py | Price compared | Dropped Products Stored
+2026-08-17 21:23:19,761 | INFO | main.py | Price drops found | 1
+2026-08-17 21:23:19,763 | INFO | serializer.py | Exporting Json...
+2026-08-17 21:23:19,767 | INFO | serializer.py | Json Saved Successfully...
+2026-08-17 21:23:19,767 | INFO | serializer.py | Exporting Data to Excel
+2026-08-17 21:23:19,867 | INFO | serializer.py | Excel Ouput Done
+2026-08-17 21:23:23,110 | INFO | main.py | Price tracking workflow started
+2026-08-17 21:23:23,110 | INFO | main.py | Previous filtered data found
+2026-08-17 21:23:23,110 | INFO | json_services.py | Loading Raw Json...
+2026-08-17 21:23:23,111 | INFO | json_services.py | Json Data Loaded !
+2026-08-17 21:23:23,111 | INFO | price_tracker.py | Comparing Prices of Old & New Products...
+2026-08-17 21:23:23,156 | INFO | price_tracker.py | Price compared | Dropped Products Stored
+2026-08-17 21:23:23,156 | INFO | main.py | Price drops found | 1
+2026-08-17 21:23:23,159 | INFO | serializer.py | Exporting Json...
+2026-08-17 21:23:23,162 | INFO | serializer.py | Json Saved Successfully...
+2026-08-17 21:23:23,162 | INFO | serializer.py | Exporting Data to Excel
+2026-08-17 21:23:23,257 | INFO | serializer.py | Excel Ouput Done
+2026-08-17 21:23:31,745 | INFO | main.py | Price tracking workflow started
+2026-08-17 21:23:31,745 | INFO | main.py | Previous filtered data found
+2026-08-17 21:23:31,745 | INFO | json_services.py | Loading Raw Json...
+2026-08-17 21:23:31,746 | INFO | json_services.py | Json Data Loaded !
+2026-08-17 21:23:31,747 | INFO | price_tracker.py | Comparing Prices of Old & New Products...
+2026-08-17 21:23:31,790 | INFO | price_tracker.py | Price compared | Dropped Products Stored
+2026-08-17 21:23:31,790 | INFO | main.py | Price drops found | 1
+2026-08-17 21:23:31,793 | INFO | serializer.py | Exporting Json...
+2026-08-17 21:23:31,796 | INFO | serializer.py | Json Saved Successfully...
+2026-08-17 21:23:31,796 | INFO | serializer.py | Exporting Data to Excel
+2026-08-17 21:23:31,891 | INFO | serializer.py | Excel Ouput Done
+2026-08-17 21:36:52,386 | INFO | main.py | Price tracking workflow started
+2026-08-17 21:36:52,387 | INFO | main.py | Previous filtered data found
+2026-08-17 21:36:52,387 | INFO | json_services.py | Loading Raw Json...
+2026-08-17 21:36:52,388 | INFO | json_services.py | Json Data Loaded !
+2026-08-17 21:36:52,388 | INFO | price_tracker.py | Comparing Prices of Old & New Products...
+2026-08-17 21:36:52,430 | INFO | price_tracker.py | Price compared | Dropped Products Stored
+2026-08-17 21:36:52,431 | INFO | main.py | Price drops found | 1
+2026-08-17 21:36:52,433 | INFO | serializer.py | Exporting Json...
+2026-08-17 21:36:52,436 | INFO | serializer.py | Json Saved Successfully...
+2026-08-17 21:36:52,437 | INFO | serializer.py | Exporting Data to Excel
+2026-08-17 21:36:52,537 | INFO | serializer.py | Excel Ouput Done
+2026-08-17 21:36:52,537 | INFO | app.py | Tracking result saved successfully.
+2026-08-17 21:36:59,923 | INFO | mailer.py | Preparing Daraz price tracking email...
+2026-08-17 21:36:59,931 | INFO | mailer.py | Attaching Excel report | D:\Daraz-Price-Tracker\data\processed\previous_filtered_products.xlsx
+2026-08-17 21:36:59,945 | INFO | mailer.py | Excel report attached successfully.
+2026-08-17 21:36:59,945 | INFO | mailer.py | Connecting to SMTP server...
+2026-08-17 21:37:07,766 | INFO | mailer.py | Email sent successfully!
+2026-08-17 21:37:07,766 | INFO | main.py | Price drop email sent successfully
+2026-08-17 21:37:30,391 | INFO | mailer.py | Preparing Daraz price tracking email...
+2026-08-17 21:37:30,392 | INFO | mailer.py | Attaching Excel report | D:\Daraz-Price-Tracker\data\processed\previous_filtered_products.xlsx
+2026-08-17 21:37:30,393 | INFO | mailer.py | Excel report attached successfully.
+2026-08-17 21:37:30,393 | INFO | mailer.py | Connecting to SMTP server...
+2026-08-17 21:37:32,996 | ERROR | mailer.py | Failed to send email | {'mohammadalihamza97outlook.com': (553, b'5.1.3 The recipient address <mohammadalihamza97outlook.com> is not a valid\n5.1.3 RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. 5b1f17b1804b1-499960988c6sm169668685e9.0 - gsmtp')}
+2026-08-17 21:37:32,997 | ERROR | main.py | Email sending failed | {'mohammadalihamza97outlook.com': (553, b'5.1.3 The recipient address <mohammadalihamza97outlook.com> is not a valid\n5.1.3 RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. 5b1f17b1804b1-499960988c6sm169668685e9.0 - gsmtp')}
+2026-08-17 21:37:32,997 | ERROR | app.py | Email sending failed.
+Traceback (most recent call last):
+  File "D:\Daraz-Price-Tracker\app.py", line 991, in <module>
+    email_result = send_price_email(
+        tracked_products=price_drops,
+        target_email=email.strip(),
+    )
+  File "D:\Daraz-Price-Tracker\main.py", line 497, in send_price_email
+    mailer._send_email()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Daraz-Price-Tracker\src\notifications\mailer.py", line 165, in _send_email
+    server.send_message(
+    ~~~~~~~~~~~~~~~~~~~^
+        message
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 975, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         rcpt_options)
+                         ^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 890, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'mohammadalihamza97outlook.com': (553, b'5.1.3 The recipient address <mohammadalihamza97outlook.com> is not a valid\n5.1.3 RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. 5b1f17b1804b1-499960988c6sm169668685e9.0 - gsmtp')}
+2026-08-17 21:38:52,782 | INFO | mailer.py | Preparing Daraz price tracking email...
+2026-08-17 21:38:52,783 | INFO | mailer.py | Attaching Excel report | D:\Daraz-Price-Tracker\data\processed\previous_filtered_products.xlsx
+2026-08-17 21:38:52,784 | INFO | mailer.py | Excel report attached successfully.
+2026-08-17 21:38:52,785 | INFO | mailer.py | Connecting to SMTP server...
+2026-08-17 21:39:02,680 | INFO | mailer.py | Email sent successfully!
+2026-08-17 21:39:02,680 | INFO | main.py | Price drop email sent successfully
